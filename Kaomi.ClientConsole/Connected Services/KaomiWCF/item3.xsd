@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1701/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
-  <xs:import schemaLocation="http://localhost:1701/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Kaomi.WCF.Model" />
-  <xs:import schemaLocation="http://localhost:1701/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:1701/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Kaomi.WCF" />
+  <xs:import schemaLocation="http://localhost:1701/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" />
+  <xs:import schemaLocation="http://localhost:1701/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Kaomi.WCF" />
   <xs:element name="DownloadAssembly">
     <xs:complexType>
       <xs:sequence>
@@ -29,7 +28,7 @@
   <xs:element name="CreateAppDomainResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Kaomi.WCF.Model" minOccurs="0" name="CreateAppDomainResult" nillable="true" type="q3:AppDomainID" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" minOccurs="0" name="CreateAppDomainResult" nillable="true" type="q3:AppDomainID" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,14 +40,14 @@
   <xs:element name="ListAppDomainsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListAppDomainsResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" minOccurs="0" name="ListAppDomainsResult" nillable="true" type="q4:ArrayOfAppDomainID" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UnloadAppDomain">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" minOccurs="0" name="id" nillable="true" type="q5:AppDomainID" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,17 +56,32 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="InstanceProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" minOccurs="0" name="app" nillable="true" type="q6:AppDomainID" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InstanceProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" minOccurs="0" name="InstanceProcessResult" nillable="true" type="q7:ProcessID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Kaomi.WCF" minOccurs="0" name="composite" nillable="true" type="q5:CompositeType" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Kaomi.WCF" minOccurs="0" name="composite" nillable="true" type="q8:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Kaomi.WCF" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q6:CompositeType" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Kaomi.WCF" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q9:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

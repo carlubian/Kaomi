@@ -1,4 +1,4 @@
-﻿using Kaomi.WCF.Model;
+﻿using Kaomi.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,13 +16,7 @@ namespace Kaomi.WCF
         FileInfo DownloadAssembly(string assemblyName, Uri path);
 
         [OperationContract]
-        AppDomainID CreateAppDomain(FileInfo path);
-
-        [OperationContract]
-        IEnumerable<string> ListAppDomains();
-
-        [OperationContract]
-        void UnloadAppDomain(string id);
+        ProcessID InstanceProcess(FileInfo app, string type);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

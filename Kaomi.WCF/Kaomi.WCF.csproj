@@ -49,13 +49,18 @@
   <ItemGroup>
     <Compile Include="IKaomi.cs" />
     <Compile Include="Logic\IsFile.cs" />
-    <Compile Include="Model\AppDomainID.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Kaomi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kaomi.Core\Kaomi.Core.csproj">
+      <Project>{58f9aa96-91b0-443c-bfa3-160f03499840}</Project>
+      <Name>Kaomi.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

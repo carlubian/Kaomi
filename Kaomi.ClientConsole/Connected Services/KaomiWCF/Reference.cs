@@ -9,7 +9,99 @@
 //------------------------------------------------------------------------------
 
 namespace Kaomi.ClientConsole.KaomiWCF {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppDomainID", Namespace="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model")]
+    [System.SerializableAttribute()]
+    public partial class AppDomainID : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProcessID", Namespace="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model")]
+    [System.SerializableAttribute()]
+    public partial class ProcessID : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="KaomiWCF.IKaomi")]
@@ -22,22 +114,28 @@ namespace Kaomi.ClientConsole.KaomiWCF {
         System.Threading.Tasks.Task<System.IO.FileInfo> DownloadAssemblyAsync(string assemblyName, System.Uri path);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/CreateAppDomain", ReplyAction="http://tempuri.org/IKaomi/CreateAppDomainResponse")]
-        Kaomi.WCF.Model.AppDomainID CreateAppDomain(System.IO.FileInfo path);
+        Kaomi.ClientConsole.KaomiWCF.AppDomainID CreateAppDomain(System.IO.FileInfo path);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/CreateAppDomain", ReplyAction="http://tempuri.org/IKaomi/CreateAppDomainResponse")]
-        System.Threading.Tasks.Task<Kaomi.WCF.Model.AppDomainID> CreateAppDomainAsync(System.IO.FileInfo path);
+        System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.AppDomainID> CreateAppDomainAsync(System.IO.FileInfo path);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/ListAppDomains", ReplyAction="http://tempuri.org/IKaomi/ListAppDomainsResponse")]
-        string[] ListAppDomains();
+        Kaomi.ClientConsole.KaomiWCF.AppDomainID[] ListAppDomains();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/ListAppDomains", ReplyAction="http://tempuri.org/IKaomi/ListAppDomainsResponse")]
-        System.Threading.Tasks.Task<string[]> ListAppDomainsAsync();
+        System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.AppDomainID[]> ListAppDomainsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/UnloadAppDomain", ReplyAction="http://tempuri.org/IKaomi/UnloadAppDomainResponse")]
-        void UnloadAppDomain(string id);
+        void UnloadAppDomain(Kaomi.ClientConsole.KaomiWCF.AppDomainID id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/UnloadAppDomain", ReplyAction="http://tempuri.org/IKaomi/UnloadAppDomainResponse")]
-        System.Threading.Tasks.Task UnloadAppDomainAsync(string id);
+        System.Threading.Tasks.Task UnloadAppDomainAsync(Kaomi.ClientConsole.KaomiWCF.AppDomainID id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/InstanceProcess", ReplyAction="http://tempuri.org/IKaomi/InstanceProcessResponse")]
+        Kaomi.ClientConsole.KaomiWCF.ProcessID InstanceProcess(Kaomi.ClientConsole.KaomiWCF.AppDomainID app, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/InstanceProcess", ReplyAction="http://tempuri.org/IKaomi/InstanceProcessResponse")]
+        System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.ProcessID> InstanceProcessAsync(Kaomi.ClientConsole.KaomiWCF.AppDomainID app, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKaomi/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IKaomi/GetDataUsingDataContractResponse")]
         Kaomi.WCF.CompositeType GetDataUsingDataContract(Kaomi.WCF.CompositeType composite);
@@ -81,28 +179,36 @@ namespace Kaomi.ClientConsole.KaomiWCF {
             return base.Channel.DownloadAssemblyAsync(assemblyName, path);
         }
         
-        public Kaomi.WCF.Model.AppDomainID CreateAppDomain(System.IO.FileInfo path) {
+        public Kaomi.ClientConsole.KaomiWCF.AppDomainID CreateAppDomain(System.IO.FileInfo path) {
             return base.Channel.CreateAppDomain(path);
         }
         
-        public System.Threading.Tasks.Task<Kaomi.WCF.Model.AppDomainID> CreateAppDomainAsync(System.IO.FileInfo path) {
+        public System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.AppDomainID> CreateAppDomainAsync(System.IO.FileInfo path) {
             return base.Channel.CreateAppDomainAsync(path);
         }
         
-        public string[] ListAppDomains() {
+        public Kaomi.ClientConsole.KaomiWCF.AppDomainID[] ListAppDomains() {
             return base.Channel.ListAppDomains();
         }
         
-        public System.Threading.Tasks.Task<string[]> ListAppDomainsAsync() {
+        public System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.AppDomainID[]> ListAppDomainsAsync() {
             return base.Channel.ListAppDomainsAsync();
         }
         
-        public void UnloadAppDomain(string id) {
+        public void UnloadAppDomain(Kaomi.ClientConsole.KaomiWCF.AppDomainID id) {
             base.Channel.UnloadAppDomain(id);
         }
         
-        public System.Threading.Tasks.Task UnloadAppDomainAsync(string id) {
+        public System.Threading.Tasks.Task UnloadAppDomainAsync(Kaomi.ClientConsole.KaomiWCF.AppDomainID id) {
             return base.Channel.UnloadAppDomainAsync(id);
+        }
+        
+        public Kaomi.ClientConsole.KaomiWCF.ProcessID InstanceProcess(Kaomi.ClientConsole.KaomiWCF.AppDomainID app, string type) {
+            return base.Channel.InstanceProcess(app, type);
+        }
+        
+        public System.Threading.Tasks.Task<Kaomi.ClientConsole.KaomiWCF.ProcessID> InstanceProcessAsync(Kaomi.ClientConsole.KaomiWCF.AppDomainID app, string type) {
+            return base.Channel.InstanceProcessAsync(app, type);
         }
         
         public Kaomi.WCF.CompositeType GetDataUsingDataContract(Kaomi.WCF.CompositeType composite) {
