@@ -19,6 +19,12 @@ namespace Kaomi.WCF
         ProcessID InstanceProcess(FileInfo app, string type);
 
         [OperationContract]
+        IEnumerable<string> ListProcesses();
+
+        [OperationContract]
+        void UnloadProcess(string process);
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
     }
 

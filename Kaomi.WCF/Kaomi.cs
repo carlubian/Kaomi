@@ -1,4 +1,5 @@
-﻿using Kaomi.Core.Model;
+﻿using DotNet.Misc.Extensions.Linq;
+using Kaomi.Core.Model;
 using Kaomi.WCF.Logic;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,10 @@ using System.Text;
 namespace Kaomi.WCF
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, IncludeExceptionDetailInFaults = true)]
-    public class Kaomi : IKaomi
+    public class Kaomi : MarshalByRefObject, IKaomi
     {
-        private IDictionary<ProcessID, object> Processes = new LenientDictionary<ProcessID, object>();
+        private IDictionary<ProcessID, (AppDomain appDomain, KaomiProcess process)> Processes 
+            = new LenientDictionary<ProcessID, (AppDomain appDomain, KaomiProcess process)>();
 
         /// <summary>
         /// Descarga un ensamblado desde una URI.
@@ -25,34 +27,49 @@ namespace Kaomi.WCF
         /// <returns>Ruta del ensamblado</returns>
         public FileInfo DownloadAssembly(string assemblyName, Uri path)
         {
-            if (!IsFile.BeingUsed(new FileInfo($"{assemblyName}.dll")))
-                using (var web = new WebClient())
-                    web.DownloadFile(path, $"{assemblyName}.dll");
-            else
-            {
-                // TODO Descargar AppDomain de memoria y borrar el archivo
-                ;
-            }
+            if (IsFile.BeingUsed(new FileInfo($"{assemblyName}.dll")))
+                ; // TODO Descargar AppDomain
+
+            using (var web = new WebClient())
+                web.DownloadFile(path, $"{assemblyName}.dll");
 
             return new FileInfo($"{assemblyName}.dll");
         }
 
         /// <summary>
-        /// Instancia un proceso contenido en el AppDomain indicado.
+        /// Instancia el proceso indicado en un nuevo AppDomain.
         /// </summary>
-        /// <param name="app">ID del AppDomain</param>
+        /// <param name="app">Ruta del ensamblado</param>
         /// <param name="type">Nombre del tipo</param>
-        /// <returns></returns>
+        /// <returns>ID del proceso</returns>
         public ProcessID InstanceProcess(FileInfo app, string type)
         {
-            var asm = Assembly.LoadFile(app.FullName);
-            var proc = asm.CreateInstance(type) as KaomiProcess;
-            proc.OnIteration();
+            string pathToDll = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName, app.Name);
+            var domainSetup = new AppDomainSetup { PrivateBinPath = pathToDll };
+            var newDomain = AppDomain.CreateDomain(app.Name, null, domainSetup);
+            var prcs = newDomain.CreateInstanceFromAndUnwrap(pathToDll, type) as KaomiProcess;
 
-            //TODO
-            proc.OnIteration();
+            Processes.Add(new ProcessID { ID = prcs.GetType().Name }, (newDomain, prcs));
 
-            return new ProcessID { ID = proc.GetType().Name };
+            prcs.OnIteration();
+
+            return new ProcessID { ID = prcs.GetType().Name };
+        }
+
+        public IEnumerable<string> ListProcesses()
+        {
+            return Processes.Keys.Select(pid => pid.ID);
+        }
+
+        public void UnloadProcess(string process)
+        {
+            var proc = Processes.FirstOrDefault(kvp => kvp.Key.ID.ToUpperInvariant().Contains(process.ToUpperInvariant()));
+
+            if (proc.Key is null)
+                return;
+
+            AppDomain.Unload(proc.Value.appDomain);
+            Processes.Remove(proc);
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

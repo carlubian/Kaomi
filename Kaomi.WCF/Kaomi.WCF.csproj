@@ -37,6 +37,9 @@
     <Reference Include="DotNet.Misc.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNet.Misc.Collections.1.0.0\lib\net461\DotNet.Misc.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="DotNet.Misc.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNet.Misc.Extensions.1.0.0\lib\net461\DotNet.Misc.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

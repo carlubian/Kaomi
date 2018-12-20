@@ -134,120 +134,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_CreateAppDomain_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_CreateAppDomain_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_ListAppDomains_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_ListAppDomains_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_UnloadAppDomain_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_UnloadAppDomain_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_InstanceProcess_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -268,6 +154,82 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_InstanceProcess_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_ListProcesses_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_ListProcesses_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_UnloadProcess_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IKaomi_UnloadProcess_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -330,7 +292,8 @@
       <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
       <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Kaomi.Core.Model" />
-      <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Kaomi.WCF" />
+      <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1701/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Kaomi.WCF" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IKaomi_DownloadAssembly_InputMessage">
@@ -339,29 +302,23 @@
   <wsdl:message name="IKaomi_DownloadAssembly_OutputMessage">
     <wsdl:part name="parameters" element="tns:DownloadAssemblyResponse" />
   </wsdl:message>
-  <wsdl:message name="IKaomi_CreateAppDomain_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateAppDomain" />
-  </wsdl:message>
-  <wsdl:message name="IKaomi_CreateAppDomain_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateAppDomainResponse" />
-  </wsdl:message>
-  <wsdl:message name="IKaomi_ListAppDomains_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListAppDomains" />
-  </wsdl:message>
-  <wsdl:message name="IKaomi_ListAppDomains_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListAppDomainsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IKaomi_UnloadAppDomain_InputMessage">
-    <wsdl:part name="parameters" element="tns:UnloadAppDomain" />
-  </wsdl:message>
-  <wsdl:message name="IKaomi_UnloadAppDomain_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UnloadAppDomainResponse" />
-  </wsdl:message>
   <wsdl:message name="IKaomi_InstanceProcess_InputMessage">
     <wsdl:part name="parameters" element="tns:InstanceProcess" />
   </wsdl:message>
   <wsdl:message name="IKaomi_InstanceProcess_OutputMessage">
     <wsdl:part name="parameters" element="tns:InstanceProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKaomi_ListProcesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListProcesses" />
+  </wsdl:message>
+  <wsdl:message name="IKaomi_ListProcesses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKaomi_UnloadProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnloadProcess" />
+  </wsdl:message>
+  <wsdl:message name="IKaomi_UnloadProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnloadProcessResponse" />
   </wsdl:message>
   <wsdl:message name="IKaomi_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
@@ -374,21 +331,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/DownloadAssembly" message="tns:IKaomi_DownloadAssembly_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/DownloadAssemblyResponse" message="tns:IKaomi_DownloadAssembly_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreateAppDomain">
-      <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/CreateAppDomain" message="tns:IKaomi_CreateAppDomain_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/CreateAppDomainResponse" message="tns:IKaomi_CreateAppDomain_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ListAppDomains">
-      <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/ListAppDomains" message="tns:IKaomi_ListAppDomains_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/ListAppDomainsResponse" message="tns:IKaomi_ListAppDomains_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UnloadAppDomain">
-      <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/UnloadAppDomain" message="tns:IKaomi_UnloadAppDomain_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/UnloadAppDomainResponse" message="tns:IKaomi_UnloadAppDomain_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="InstanceProcess">
       <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/InstanceProcess" message="tns:IKaomi_InstanceProcess_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/InstanceProcessResponse" message="tns:IKaomi_InstanceProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProcesses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/ListProcesses" message="tns:IKaomi_ListProcesses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/ListProcessesResponse" message="tns:IKaomi_ListProcesses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnloadProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/UnloadProcess" message="tns:IKaomi_UnloadProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKaomi/UnloadProcessResponse" message="tns:IKaomi_UnloadProcess_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IKaomi/GetDataUsingDataContract" message="tns:IKaomi_GetDataUsingDataContract_InputMessage" />
@@ -409,39 +362,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateAppDomain">
-      <soap12:operation soapAction="http://tempuri.org/IKaomi/CreateAppDomain" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_CreateAppDomain_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_CreateAppDomain_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListAppDomains">
-      <soap12:operation soapAction="http://tempuri.org/IKaomi/ListAppDomains" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_ListAppDomains_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_ListAppDomains_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UnloadAppDomain">
-      <soap12:operation soapAction="http://tempuri.org/IKaomi/UnloadAppDomain" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_UnloadAppDomain_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_UnloadAppDomain_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="InstanceProcess">
       <soap12:operation soapAction="http://tempuri.org/IKaomi/InstanceProcess" style="document" />
       <wsdl:input>
@@ -450,6 +370,28 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_InstanceProcess_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProcesses">
+      <soap12:operation soapAction="http://tempuri.org/IKaomi/ListProcesses" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_ListProcesses_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_ListProcesses_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnloadProcess">
+      <soap12:operation soapAction="http://tempuri.org/IKaomi/UnloadProcess" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_UnloadProcess_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IKaomi_UnloadProcess_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -471,7 +413,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:1701/Kaomi</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-PORTFLA\portflat</Upn>
+          <Upn>DESKTOP-PL6B0TT\carlu</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

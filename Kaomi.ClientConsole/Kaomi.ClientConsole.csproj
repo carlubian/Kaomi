@@ -67,11 +67,11 @@
     <None Include="Connected Services\KaomiWCF\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\KaomiWCF\item5.xsd">
+    <None Include="Connected Services\KaomiWCF\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\KaomiWCF\Kaomi.ClientConsole.KaomiWCF.AppDomainID.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\KaomiWCF\item5.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\KaomiWCF\Kaomi.ClientConsole.KaomiWCF.ProcessID.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
