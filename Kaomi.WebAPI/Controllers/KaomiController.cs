@@ -76,19 +76,32 @@ namespace Kaomi.WebAPI.Controllers
             }
         }
 
-        // GET Kaomi/Instance
-        // This is a temporary endpoint
-        [HttpGet("Instance")]
-        public ActionResult<string> Instance(string id, string type)
+        // GET Kaomi/InstanceProcess
+        [HttpGet("InstanceProcess")]
+        public ActionResult<string> InstanceProcess(string id, string type)
         {
             try
             {
-                KaomiLoader.Instance(id, type);
+                KaomiLoader.InstanceProcess(id, type);
                 return "Process executed; Output should be visible on the Kestrel console window.";
             }
             catch (Exception e)
             {
                 return $"Error instancing process: {e.Message}";
+            }
+        }
+
+        // GET Kaomi/ListProcesses
+        [HttpGet("ListProcesses")]
+        public ActionResult<string> ListProcesses(string id, string type)
+        {
+            try
+            {
+                return KaomiLoader.ListProcesses().Aggregate("", (str, elem) => $"{str};{elem}");
+            }
+            catch (Exception e)
+            {
+                return $"Error listing processes: {e.Message}";
             }
         }
     }

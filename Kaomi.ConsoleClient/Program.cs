@@ -35,7 +35,7 @@ namespace Kaomi.ConsoleClient
             Console.ReadLine();
 
             Console.WriteLine("Executing process...");
-            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/Instance?id=HelloWorldProcess&type=OneTimeHelloWorld");
+            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/InstanceProcess?id=HelloWorldProcess&type=OneTimeHelloWorld");
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
             Console.ReadLine();
 

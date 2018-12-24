@@ -12,7 +12,7 @@ namespace Kaomi.Core
     public class KaomiLoader
     {
         private static IDictionary<string, Assembly> asms = new Dictionary<string, Assembly>();
-        private static IDictionary<string, KaomiProcess> prcs = new Dictionary<string, KaomiProcess>();
+        private static IDictionary<string, KaomiTaskHost> prcs = new Dictionary<string, KaomiTaskHost>();
 
         public static void PullFromUri(string asmName, Uri uri)
         {
@@ -55,7 +55,7 @@ namespace Kaomi.Core
             AssemblyLoadContext.GetLoadContext(asm).Unload();
         }
 
-        public static void Instance(string id, string type)
+        public static void InstanceProcess(string id, string type)
         {
             var asm = asms[id];
 
@@ -65,8 +65,12 @@ namespace Kaomi.Core
             var msg = asm.GetTypes().First(t => t.Name.Contains(type));
             var obj = Activator.CreateInstance(msg) as KaomiProcess;
 
-            //TODO
-            obj.OnIteration();
+            prcs.Add(type, new KaomiTaskHost(id, obj));
+        }
+
+        public static IEnumerable<string> ListProcesses()
+        {
+            return prcs.Keys;
         }
     }
 }

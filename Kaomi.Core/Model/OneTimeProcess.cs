@@ -9,5 +9,9 @@ namespace Kaomi.Core.Model
     public abstract class OneTimeProcess : KaomiProcess
     {
         internal override bool OneTime() => true;
+
+        public override void OnIteration() => DoWork();
+
+        public abstract void DoWork();
     }
 }

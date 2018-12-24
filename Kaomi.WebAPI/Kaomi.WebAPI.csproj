@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="HelloWorldProcess.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Kaomi.Core\Kaomi.Core.csproj" />
   </ItemGroup>
 

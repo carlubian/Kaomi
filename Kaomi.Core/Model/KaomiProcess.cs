@@ -6,6 +6,8 @@ namespace Kaomi.Core.Model
 {
     public abstract class KaomiProcess : MarshalByRefObject
     {
+        internal bool RequestFinalization { get; set; } = false;
+
         internal abstract bool OneTime();
 
         public abstract void OnInitialize();
