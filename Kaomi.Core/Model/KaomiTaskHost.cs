@@ -68,7 +68,8 @@ namespace Kaomi.Core.Model
                 if (Process.RequestFinalization)
                     Finalize = true;
 
-                // TODO if process iteration can be delayed, it will go here.
+                // Wait for process iteration delay
+                Thread.Sleep(Process.IterationDelay);
             }
 
             // Finalize the process

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Kaomi.Core.Model
 {
+    /// <summary>
+    /// Represents a process that will run a single
+    /// iteration on a Kaomi Task Host.
+    /// </summary>
     public abstract class OneTimeProcess : KaomiProcess
     {
-        internal override bool OneTime() => true;
-
         public override void OnIteration() => DoWork();
 
         public abstract void DoWork();

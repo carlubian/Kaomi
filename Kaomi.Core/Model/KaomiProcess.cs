@@ -4,11 +4,15 @@ using System.Text;
 
 namespace Kaomi.Core.Model
 {
+    /// <summary>
+    /// Represents a process that will run continuously
+    /// on a Kaomi Task Host.
+    /// </summary>
     public abstract class KaomiProcess : MarshalByRefObject
     {
         internal bool RequestFinalization { get; set; } = false;
 
-        internal abstract bool OneTime();
+        public TimeSpan IterationDelay { get; set; } = TimeSpan.FromSeconds(1);
 
         public abstract void OnInitialize();
 

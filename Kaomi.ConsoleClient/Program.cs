@@ -37,6 +37,9 @@ namespace Kaomi.ConsoleClient
             Console.WriteLine("Executing process...");
             resp = await client.GetAsync($"{UriEndpoint}/Kaomi/InstanceProcess?id=HelloWorldProcess&type=OneTimeHelloWorld");
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
+            Console.WriteLine("Active processes:");
+            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/ListProcesses");
+            Console.WriteLine(await resp.Content.ReadAsStringAsync());
             Console.ReadLine();
 
             Console.WriteLine("Unloading assembly from memory...");
@@ -44,6 +47,9 @@ namespace Kaomi.ConsoleClient
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
             Console.ReadLine();
 
+            Console.WriteLine("Active processes:");
+            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/ListProcesses");
+            Console.WriteLine(await resp.Content.ReadAsStringAsync());
             Console.ReadLine();
             client.Dispose();
         }

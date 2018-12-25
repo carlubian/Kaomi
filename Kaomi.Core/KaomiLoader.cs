@@ -9,10 +9,16 @@ using System.Runtime.Loader;
 
 namespace Kaomi.Core
 {
-    public class KaomiLoader
+    public static class KaomiLoader
     {
-        private static IDictionary<string, Assembly> asms = new Dictionary<string, Assembly>();
-        private static IDictionary<string, KaomiTaskHost> prcs = new Dictionary<string, KaomiTaskHost>();
+        internal static IDictionary<string, Assembly> asms = new Dictionary<string, Assembly>();
+        internal static IDictionary<string, KaomiTaskHost> prcs = new Dictionary<string, KaomiTaskHost>();
+
+        static KaomiLoader()
+        {
+            // Start system processes
+            prcs.Add("MonitorFinishedProcesses", new KaomiTaskHost("System", new MonitorFinishedProcesses()));
+        }
 
         public static void PullFromUri(string asmName, Uri uri)
         {
@@ -70,7 +76,7 @@ namespace Kaomi.Core
 
         public static IEnumerable<string> ListProcesses()
         {
-            return prcs.Keys;
+            return prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}").ToArray();
         }
     }
 }

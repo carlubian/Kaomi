@@ -93,15 +93,15 @@ namespace Kaomi.WebAPI.Controllers
 
         // GET Kaomi/ListProcesses
         [HttpGet("ListProcesses")]
-        public ActionResult<string> ListProcesses(string id, string type)
+        public ActionResult<IEnumerable<string>> ListProcesses(string id, string type)
         {
             try
             {
-                return KaomiLoader.ListProcesses().Aggregate("", (str, elem) => $"{str};{elem}");
+                return KaomiLoader.ListProcesses().ToArray();
             }
             catch (Exception e)
             {
-                return $"Error listing processes: {e.Message}";
+                return new[] { $"Error listing processes: {e.Message}" };
             }
         }
     }
