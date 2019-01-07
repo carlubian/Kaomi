@@ -9,6 +9,14 @@ namespace Kaomi.ConsoleClient
         private static string UriEndpoint = "https://localhost:5001";
         private static string AsmLocation = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21626915&authkey=AGiNE3NP0WvSDzs");
 
+        // Dependencies
+        private static string ConfigAdapter = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643205&authkey=AHjB_haZbk8vwoc");
+        private static string DotNetExtensions = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643206&authkey=ALhw9x4mhOPiMzg");
+        private static string HJson = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643207&authkey=AGNUr09eKCvYQpk");
+        private static string INIFileParser = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643208&authkey=AGZpeDbsvxeQZlk");
+        // Configuration file
+        private static string ConfigFile = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643211&authkey=AAr4IfVa32lCooo");
+
         static void Main(string[] args)
         {
             DoMain().Wait();
@@ -25,6 +33,11 @@ namespace Kaomi.ConsoleClient
             var client = new HttpClient();
 
             Console.WriteLine("Pulling assembly from URI...");
+            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=ConfigAdapter.dll&uri={ConfigAdapter}");
+            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=DotNet.Misc.Extensions.dll&uri={DotNetExtensions}");
+            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HJson.dll&uri={HJson}");
+            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=INIFileParserDotNetCore.dll&uri={INIFileParser}");
+            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldConfig.ini&uri={ConfigFile}");
             var resp = await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldProcess.dll&uri={AsmLocation}");
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
             Console.ReadLine();
@@ -35,7 +48,7 @@ namespace Kaomi.ConsoleClient
             Console.ReadLine();
 
             Console.WriteLine("Executing process...");
-            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/InstanceProcess?id=HelloWorldProcess&type=OneTimeHelloWorld");
+            resp = await client.GetAsync($"{UriEndpoint}/Kaomi/InstanceProcess?id=HelloWorldProcess&type=ConfigHelloWorld");
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
             Console.WriteLine("Active processes:");
             resp = await client.GetAsync($"{UriEndpoint}/Kaomi/ListProcesses");

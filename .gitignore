@@ -329,3 +329,8 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /Kaomi.Core/Processes/CustomProcess.cs
+/Kaomi.WebAPI/ConfigAdapter.dll
+/Kaomi.WebAPI/DotNet.Misc.Extensions.dll
+/Kaomi.WebAPI/HelloWorldConfig.ini
+/Kaomi.WebAPI/HJson.dll
+/Kaomi.WebAPI/INIFileParserDotNetCore.dll

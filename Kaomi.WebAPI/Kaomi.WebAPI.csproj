@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ConfigAdapter.dll" />
+    <None Remove="DotNet.Misc.Extensions.dll" />
+    <None Remove="HelloWorldConfig.ini" />
     <None Remove="HelloWorldProcess.dll" />
+    <None Remove="HJson.dll" />
+    <None Remove="INIFileParserDotNetCore.dll" />
   </ItemGroup>
 
   <ItemGroup>
