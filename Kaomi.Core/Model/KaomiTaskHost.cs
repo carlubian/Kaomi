@@ -54,26 +54,55 @@ namespace Kaomi.Core.Model
                 if (Process is OneTimeProcess)
                     Finalize = true;
 
-                // Check for user messages
-                if (UserCommand != null)
-                {
-                    Process.OnUserMessage(UserCommand);
-                    UserCommand = null;
-                }
+                CheckUserMessages();
 
                 // Do an iteration
                 Process.OnIteration();
-
-                // Check whether process is requesting to finalize
+                
                 if (Process.RequestFinalization)
                     Finalize = true;
 
                 // Wait for process iteration delay
-                Thread.Sleep(Process.IterationDelay);
+                if (Process.IterationDelay <= TimeSpan.FromSeconds(60))
+                    WaitForIteration(Process.IterationDelay);
+                else
+                {
+                    // Break long intervals in several one minute pauses
+                    var interval = Process.IterationDelay;
+
+                    while (interval.TotalMinutes > 0)
+                    {
+                        if (interval.TotalMinutes < 1)
+                            WaitForIteration(interval);
+                        else
+                            WaitForIteration(TimeSpan.FromMinutes(1));
+
+                        interval -= TimeSpan.FromMinutes(1);
+                        
+                        CheckUserMessages();
+                        
+                        if (Process.RequestFinalization)
+                            Finalize = true;
+                    }
+                }
             }
 
             // Finalize the process
             Process.OnFinalize();
+        }
+
+        private void CheckUserMessages()
+        {
+            if (UserCommand != null)
+            {
+                Process.OnUserMessage(UserCommand);
+                UserCommand = null;
+            }
+        }
+
+        private void WaitForIteration(TimeSpan timeSpan)
+        {
+            Thread.Sleep(Convert.ToInt32(timeSpan.TotalMilliseconds));
         }
     }
 }
