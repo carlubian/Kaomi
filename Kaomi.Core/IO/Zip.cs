@@ -15,7 +15,7 @@ namespace Kaomi.Core.IO
                 return;
 
             using (var file = ZipFile.Read(filename))
-                file.ExtractAll(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName);
+                file.ExtractAll(Environment.CurrentDirectory, ExtractExistingFileAction.OverwriteSilently);
         }
     }
 }
