@@ -17,6 +17,9 @@ namespace Kaomi.ConsoleClient
         // Configuration file
         private static string ConfigFile = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21643211&authkey=AAr4IfVa32lCooo");
 
+        // All needed files inside a Zip
+        private static string ZipBundle = Uri.EscapeDataString("https://onedrive.live.com/download?cid=5EF8A8FD6C11D715&resid=5EF8A8FD6C11D715%21647843&authkey=AKVSdLGi23XOLmk");
+
         static void Main(string[] args)
         {
             DoMain().Wait();
@@ -33,12 +36,14 @@ namespace Kaomi.ConsoleClient
             var client = new HttpClient();
 
             Console.WriteLine("Pulling assembly from URI...");
-            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=ConfigAdapter.dll&uri={ConfigAdapter}");
-            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=DotNet.Misc.Extensions.dll&uri={DotNetExtensions}");
-            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HJson.dll&uri={HJson}");
-            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=INIFileParserDotNetCore.dll&uri={INIFileParser}");
-            await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldConfig.ini&uri={ConfigFile}");
-            var resp = await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldProcess.dll&uri={AsmLocation}");
+            //await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=ConfigAdapter.dll&uri={ConfigAdapter}");
+            //await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=DotNet.Misc.Extensions.dll&uri={DotNetExtensions}");
+            //await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HJson.dll&uri={HJson}");
+            //await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=INIFileParserDotNetCore.dll&uri={INIFileParser}");
+            //await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldConfig.ini&uri={ConfigFile}");
+            //var resp = await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldProcess.dll&uri={AsmLocation}");
+
+            var resp = await client.GetAsync($"{UriEndpoint}/Kaomi/PullFromUri?asmName=HelloWorldBundle.zip&uri={ZipBundle}");
             Console.WriteLine($"Response: {await resp.Content.ReadAsStringAsync()}");
             Console.ReadLine();
 

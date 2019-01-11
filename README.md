@@ -18,6 +18,11 @@ For the client machine:
 * Internet access to the host machine, to make REST calls
 * If using Kaomi.ConsoleClient, .NET Core 3 Preview
 
+### Note when executing Kaomi.WebAPI from inside Visual Studio
+When running from Visual Studio, zip files will be uncompressed to an incorrect directory. To fix this behaviour, publish the WebAPI project to a local directory and execute it from there.
+
+Pulling DLL assemblies directly is not affected by this.
+
 ## Kaomi Process lifecycle
 This diagram represents how processes behave within Kaomi:
 

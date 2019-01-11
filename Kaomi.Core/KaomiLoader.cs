@@ -1,4 +1,5 @@
-﻿using Kaomi.Core.Model;
+﻿using Kaomi.Core.IO;
+using Kaomi.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,8 @@ namespace Kaomi.Core
         {
             using (var web = new WebClient())
                 web.DownloadFile(uri, asmName);
+
+            Zip.ExtractFile(asmName);
         }
 
         public static string Load(string path)
