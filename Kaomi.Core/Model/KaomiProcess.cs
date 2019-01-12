@@ -14,6 +14,13 @@ namespace Kaomi.Core.Model
 
         public TimeSpan IterationDelay { get; set; } = TimeSpan.FromSeconds(1);
 
+        public T Request<T>() where T: KaomiPlugin, new()
+        {
+            var plugin = new T();
+            plugin.Initialize();
+            return plugin;
+        }
+
         public abstract void OnInitialize();
 
         public abstract void OnIteration();
