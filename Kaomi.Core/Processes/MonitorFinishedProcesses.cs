@@ -16,10 +16,15 @@ namespace Kaomi.Core
     /// </remarks>
     internal class MonitorFinishedProcesses : KaomiProcess
     {
+        private ServerConsoleOutput ServerConsole;
+
         public override void OnInitialize()
         {
             // Iterate once every 10 seconds
             base.IterationDelay = TimeSpan.FromSeconds(10);
+
+            // Request Kaomi Plugin
+            ServerConsole = Request<ServerConsoleOutput>();
         }
 
         public override void OnIteration()
@@ -30,13 +35,16 @@ namespace Kaomi.Core
                 .ToArray();
 
             foreach (var pr in prToRemove)
+            {
                 KaomiLoader.prcs.Remove(pr);
+                ServerConsole._WriteLine($"{pr} is being finalized and will be removed from memory.");
+            }
         }
 
         public override void OnFinalize()
         {
             // System processes should only finalize when shutting down Kaomi
-            Console.WriteLine($"System process {nameof(MonitorFinishedProcesses)} has been terminated.");
+            ServerConsole._WriteLine($"System process {nameof(MonitorFinishedProcesses)} is being terminated.");
         }
         
         public override void OnUserMessage(string message)

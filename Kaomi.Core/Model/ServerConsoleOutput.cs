@@ -35,6 +35,17 @@ namespace Kaomi.Core.Model
             Console.ForegroundColor = fore;
             Console.BackgroundColor = back;
         }
+
+        internal void _WriteLine(object content)
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+
+            Console.WriteLine(content.ToString());
+
+            Console.ForegroundColor = fore;
+            Console.BackgroundColor = back;
+        }
     }
 
     public enum OutputKind
