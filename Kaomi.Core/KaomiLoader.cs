@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
+using System.Threading.Tasks;
 
 namespace Kaomi.Core
 {
@@ -19,7 +21,11 @@ namespace Kaomi.Core
         {
             // Start system processes
             prcs.Add("MonitorFinishedProcesses", new KaomiTaskHost("System", new MonitorFinishedProcesses()));
+            prcs.Add("AutoStartProcesses", new KaomiTaskHost("System", new AutoStartProcesses()));
         }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static bool IsActive() => true;
 
         public static void PullFromUri(string asmName, Uri uri)
         {
@@ -79,7 +85,7 @@ namespace Kaomi.Core
 
         public static IEnumerable<string> ListProcesses()
         {
-            return prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}").ToArray();
+            return prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}");
         }
     }
 }

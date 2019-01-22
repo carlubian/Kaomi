@@ -10,11 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaomi.WebAPI", "Kaomi.WebAPI\Kaomi.WebAPI.csproj", "{855EA92C-8D98-499D-8711-30C15A925FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.WebAPI", "Kaomi.WebAPI\Kaomi.WebAPI.csproj", "{855EA92C-8D98-499D-8711-30C15A925FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaomi.ConsoleClient", "Kaomi.ConsoleClient\Kaomi.ConsoleClient.csproj", "{52A8C254-DADD-448E-91EC-B25CA2791B05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.ConsoleClient", "Kaomi.ConsoleClient\Kaomi.ConsoleClient.csproj", "{52A8C254-DADD-448E-91EC-B25CA2791B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldProcess", "HelloWorldProcess\HelloWorldProcess.csproj", "{E3802282-D3C9-4B44-BC38-75CD44A626F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorldProcess", "HelloWorldProcess\HelloWorldProcess.csproj", "{E3802282-D3C9-4B44-BC38-75CD44A626F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigProcess", "ConfigProcess\ConfigProcess.csproj", "{1D25E788-EEAB-46F8-A606-EE09F0DAB580}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

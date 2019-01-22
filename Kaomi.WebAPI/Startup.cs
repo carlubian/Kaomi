@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kaomi.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -18,6 +19,9 @@ namespace Kaomi.WebAPI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            // Make sure KaomiLoader class is loaded into memory.
+            KaomiLoader.IsActive();
         }
 
         public IConfiguration Configuration { get; }
