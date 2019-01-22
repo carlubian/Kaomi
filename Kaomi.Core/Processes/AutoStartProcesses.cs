@@ -19,10 +19,11 @@ namespace Kaomi.Core
 
         public override void DoWork()
         {
-            // Temporary
-            var type = Config.Read("Startup:ConfigProcess");
-            KaomiLoader.Load("ConfigProcess.dll");
-            KaomiLoader.InstanceProcess("ConfigProcess", type);
+            // This will be replaced by a proper key search
+            var key = "ConfigProcess";
+            var type = Config.Read($"Startup:{key}");
+            KaomiLoader.Load($"{key}.dll");
+            KaomiLoader.InstanceProcess(key, type);
             //
             ServerConsole.WriteLine("All startup processes initialized.");
         }

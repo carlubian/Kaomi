@@ -10,10 +10,9 @@ namespace Kaomi.Core.Model
     {
         private Config config;
 
-        public override void Initialize()
+        public override void Initialize(string callingAssembly)
         {
-            var asm = Assembly.GetExecutingAssembly().GetName().Name;
-            config = Config.From($"{asm}.xml");
+            config = Config.From($"{callingAssembly}.xml");
         }
 
         public string Read(string key) => config.Read(key);

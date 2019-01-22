@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace Kaomi.Core.Model
@@ -17,7 +18,7 @@ namespace Kaomi.Core.Model
         public T Request<T>() where T: KaomiPlugin, new()
         {
             var plugin = new T();
-            plugin.Initialize();
+            plugin.Initialize(Assembly.GetCallingAssembly().GetName().Name);
             return plugin;
         }
 

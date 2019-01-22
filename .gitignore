@@ -335,3 +335,4 @@ ASALocalRun/
 /Kaomi.WebAPI/HJson.dll
 /Kaomi.WebAPI/INIFileParserDotNetCore.dll
 /Kaomi.WebAPI/ConfigProcess.dll
+/Kaomi.WebAPI/ConfigProcess.xml

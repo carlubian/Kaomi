@@ -8,7 +8,7 @@ namespace Kaomi.Core.Model
     {
         ConsoleColor fore, back;
 
-        public override void Initialize()
+        public override void Initialize(string callingAssembly)
         {
             fore = Console.ForegroundColor;
             back = Console.BackgroundColor;

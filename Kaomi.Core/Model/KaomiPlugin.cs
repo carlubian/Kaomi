@@ -6,6 +6,6 @@ namespace Kaomi.Core.Model
 {
     public abstract class KaomiPlugin
     {
-        public abstract void Initialize();
+        public abstract void Initialize(string callingAssembly);
     }
 }

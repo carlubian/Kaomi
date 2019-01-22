@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration Format="A">
+  <Setting Key="Message">Hello, World from Kaomi Config Plugin</Setting>
+</Configuration>
