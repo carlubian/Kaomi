@@ -5,17 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="HelloWorldConfig.ini" />
+    <None Remove="HelloWorldProcess.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="HelloWorldConfig.ini">
+    <Content Include="HelloWorldProcess.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="ConfigAdapter" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,5 +18,7 @@ namespace Kaomi.Core.Model
         public string Read(string key) => config.Read(key);
 
         public void Write(string key, string value) => config.Write(key, value);
+
+        public IDictionary<string, string> SettingsIn(string section) => config.SettingsIn(section);
     }
 }

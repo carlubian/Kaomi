@@ -14,18 +14,18 @@ namespace Kaomi.Core
         {
             ServerConsole = Request<ServerConsoleOutput>();
             Config = Request<ConfigFileManager>();
-            ServerConsole.WriteLine("Looking for startup processes...");
+            ServerConsole._WriteLine("Looking for startup processes...");
         }
 
         public override void DoWork()
         {
-            // This will be replaced by a proper key search
-            var key = "ConfigProcess";
-            var type = Config.Read($"Startup:{key}");
-            KaomiLoader.Load($"{key}.dll");
-            KaomiLoader.InstanceProcess(key, type);
-            //
-            ServerConsole.WriteLine("All startup processes initialized.");
+            foreach (var proc in Config.SettingsIn("Startup"))
+            {
+                KaomiLoader.Load($"{proc.Key}.dll");
+                KaomiLoader.InstanceProcess(proc.Key, proc.Value);
+            }
+
+            ServerConsole._WriteLine("All startup processes initialized.");
         }
 
         public override void OnFinalize()

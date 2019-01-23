@@ -10,8 +10,8 @@ namespace Kaomi.Core.Model
 
         public override void Initialize(string callingAssembly)
         {
-            fore = Console.ForegroundColor;
-            back = Console.BackgroundColor;
+            fore = ConsoleColor.Gray;
+            back = ConsoleColor.Black;
         }
 
         public void WriteLine(object content, OutputKind kind = OutputKind.Info)
@@ -38,10 +38,9 @@ namespace Kaomi.Core.Model
 
         internal void _WriteLine(object content)
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-            Console.WriteLine(content.ToString());
+            Console.WriteLine($"[SYSTEM] {content.ToString()}");
 
             Console.ForegroundColor = fore;
             Console.BackgroundColor = back;
