@@ -11,7 +11,8 @@ namespace Kaomi.Core.Model
         internal string AssemblyId { get; set; }
         internal KaomiProcess Process { get; set; }
         internal bool Finalize { get; set; }
-        internal string UserCommand { get; set; }
+        internal Queue<string> UserCommand { get; set; }
+        internal Queue<string> Results { get; set; }
 
         private Task Task { get; set; }
 
@@ -25,7 +26,9 @@ namespace Kaomi.Core.Model
             AssemblyId = assemblyId;
             Process = process;
             Finalize = false;
-            UserCommand = null;
+            UserCommand = new Queue<string>();
+            Results = new Queue<string>();
+            process.TaskHost = this;
 
             ScaffoldAndRun();
         }
@@ -93,11 +96,8 @@ namespace Kaomi.Core.Model
 
         private void CheckUserMessages()
         {
-            if (UserCommand != null)
-            {
-                Process.OnUserMessage(UserCommand);
-                UserCommand = null;
-            }
+            if (UserCommand.Count > 0)
+                Process.OnUserMessage(UserCommand.Dequeue());
         }
 
         private void WaitForIteration(TimeSpan timeSpan)

@@ -12,6 +12,7 @@ namespace Kaomi.Core.Model
     public abstract class KaomiProcess : MarshalByRefObject
     {
         internal bool RequestFinalization { get; set; } = false;
+        internal KaomiTaskHost TaskHost { get; set; }
 
         public TimeSpan IterationDelay { get; set; } = TimeSpan.FromSeconds(1);
 
@@ -20,6 +21,14 @@ namespace Kaomi.Core.Model
             var plugin = new T();
             plugin.Initialize(Assembly.GetCallingAssembly().GetName().Name);
             return plugin;
+        }
+
+        public void NotifyResult(string result)
+        {
+            // Limit the amount of results per process
+            if (TaskHost.Results.Count > 200)
+                TaskHost.Results.Dequeue();
+            TaskHost.Results.Enqueue(result);
         }
 
         public abstract void OnInitialize();

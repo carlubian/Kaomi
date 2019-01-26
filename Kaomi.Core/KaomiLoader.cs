@@ -87,5 +87,16 @@ namespace Kaomi.Core
         {
             return prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}");
         }
+
+        public static bool HasResults(string processId)
+        {
+            return prcs[processId].Results.Count > 0;
+        }
+
+        public static IEnumerable<string> GetResults(string processId)
+        {
+            while (prcs[processId].Results.Count > 0)
+                yield return prcs[processId].Results.Dequeue();
+        }
     }
 }

@@ -104,5 +104,33 @@ namespace Kaomi.WebAPI.Controllers
                 return new[] { $"Error listing processes: {e.Message}" };
             }
         }
+
+        // GET Kaomi/HasResults
+        [HttpGet("HasResults")]
+        public ActionResult<string> HasResults(string process)
+        {
+            try
+            {
+                return KaomiLoader.HasResults(process).ToString();
+            }
+            catch (Exception e)
+            {
+                return $"Error finding results: {e.Message}";
+            }
+        }
+
+        // GET Kaomi/GetResults
+        [HttpGet("GetResults")]
+        public ActionResult<IEnumerable<string>> GetResults(string process)
+        {
+            try
+            {
+                return KaomiLoader.GetResults(process).ToArray();
+            }
+            catch (Exception e)
+            {
+                return new[] { $"Error returning results: {e.Message}" };
+            }
+        }
     }
 }
