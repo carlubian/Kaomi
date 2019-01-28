@@ -98,5 +98,12 @@ namespace Kaomi.Core
             while (prcs[processId].Results.Count > 0)
                 yield return prcs[processId].Results.Dequeue();
         }
+
+        public static void SendMessage(string processId, string message)
+        {
+            if (prcs[processId].UserCommand.Count > 200)
+                prcs[processId].UserCommand.Dequeue();
+            prcs[processId].UserCommand.Enqueue(message);
+        }
     }
 }

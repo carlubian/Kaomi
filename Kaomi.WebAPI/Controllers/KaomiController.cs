@@ -132,5 +132,20 @@ namespace Kaomi.WebAPI.Controllers
                 return new[] { $"Error returning results: {e.Message}" };
             }
         }
+
+        // GET Kaomi/SendMessage
+        [HttpGet("SendMessage")]
+        public ActionResult<string> SendMessage(string process, string message)
+        {
+            try
+            {
+                KaomiLoader.SendMessage(process, message);
+                return "Message sent successfully.";
+            }
+            catch (Exception e)
+            {
+                return $"Error sending message: {e.Message}";
+            }
+        }
     }
 }

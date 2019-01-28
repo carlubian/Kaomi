@@ -2,7 +2,7 @@
 <Configuration Format="A">
   <Setting Key="Version">1</Setting>
   <Startup>
-    <Setting Key="ConfigProcess">ConfigClass</Setting>
+    <Setting Key="ConfigProcess">MessageProcess</Setting>
   </Startup>
   <Setting Key="Test">value</Setting>
 </Configuration>
