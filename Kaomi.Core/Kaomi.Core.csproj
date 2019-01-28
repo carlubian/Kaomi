@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Id>Kaomi.Core</Id>
+    <Title>Kaomi.Core</Title>
+    <Version>0.5.0</Version>
+    <Authors>carlubian</Authors>
+    <Owners>carlubian</Owners>
+    <Company>carlubian</Company>
+    <PackageReleaseNotes>First NuGet release.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/carlubian/Kaomi</PackageProjectUrl>
+    <Description>Allows the creation of Kaomi Processes and Servers.</Description>
+    <RepositoryUrl>https://github.com/carlubian/Kaomi.git</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageTags>asp-net-core, web-api, dotnet-core3</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
