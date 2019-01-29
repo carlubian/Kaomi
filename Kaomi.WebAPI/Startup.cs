@@ -33,20 +33,23 @@ namespace Kaomi.WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IApplicationLifetime lifetime)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                //app.UseHsts();
-            }
-
-            //app.UseHttpsRedirection();
             app.UseMvc();
+            lifetime.ApplicationStopping.Register(OnShutdown);
+        }
+
+        private void OnShutdown()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            foreach (var assembly in KaomiLoader.ListProcesses()
+                .Select(pr => pr.Split(' ')[0].Replace("[", "").Replace("]", ""))
+                .Distinct()
+                .Where(asm => asm != "System"))
+            {
+                Console.WriteLine($"[SYSTEM] Unloading assembly {assembly}");
+                KaomiLoader.Unload(assembly);
+            }
         }
     }
 }

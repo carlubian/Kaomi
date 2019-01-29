@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Kaomi.Core;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Kaomi.WebAPI.Controllers
 {
@@ -15,7 +16,11 @@ namespace Kaomi.WebAPI.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "Kaomi.WebAPI appears to be working.";
+            var result = JsonConvert.SerializeObject(new
+            {
+                status = "Kaomi.WebAPI appears to be working."
+            });
+            return result;
         }
 
         // GET Kaomi/PullFromUri
@@ -25,11 +30,19 @@ namespace Kaomi.WebAPI.Controllers
             try
             {
                 KaomiLoader.PullFromUri(asmName, new Uri(uri));
-                return $"Assembly {asmName} pulled from requested URI.";
+                var result = JsonConvert.SerializeObject(new
+                {
+                    asmName = $"Assembly {asmName} pulled from requested URI."
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error pulling assembly: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error pulling assembly: {e.Message}"
+                });
+                return error;
             }
         }
 
@@ -39,25 +52,43 @@ namespace Kaomi.WebAPI.Controllers
         {
             try
             {
-                return KaomiLoader.Load(path);
+                var result = JsonConvert.SerializeObject(new
+                {
+                    asmId = KaomiLoader.Load(path)
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error loading assembly: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error loading assembly: {e.Message}"
+                });
+                return error;
             }
         }
 
-        // GET Kaomi/List
-        [HttpGet("List")]
-        public ActionResult<string> List()
+        // GET Kaomi/ListAssemblies
+        [HttpGet("ListAssemblies")]
+        public ActionResult<string> ListAssemblies()
         {
             try
             {
-                return KaomiLoader.List().Aggregate("", (str, elem) => $"{str};{elem}");
+                var asms = KaomiLoader.List().ToArray();
+                var result = JsonConvert.SerializeObject(new
+                {
+                    count = asms.Length,
+                    assemblies = asms
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error listing loaded assemblies: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error listing loaded assemblies: {e.Message}"
+                });
+                return error;
             }
         }
 
@@ -68,11 +99,19 @@ namespace Kaomi.WebAPI.Controllers
             try
             {
                 KaomiLoader.Unload(path);
-                return $"Assembly {path} removed from memory.";
+                var result = JsonConvert.SerializeObject(new
+                {
+                    status = $"Assembly {path} removed from memory."
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error unloading assembly: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error unloading assembly: {e.Message}"
+                });
+                return error;
             }
         }
 
@@ -83,25 +122,43 @@ namespace Kaomi.WebAPI.Controllers
             try
             {
                 KaomiLoader.InstanceProcess(id, type);
-                return "Process executed; Output should be visible on the Kestrel console window.";
+                var result = JsonConvert.SerializeObject(new
+                {
+                    status = "Process executed; Output should be visible on the Kestrel console window."
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error instancing process: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error instancing process: {e.Message}"
+                });
+                return error;
             }
         }
 
         // GET Kaomi/ListProcesses
         [HttpGet("ListProcesses")]
-        public ActionResult<IEnumerable<string>> ListProcesses(string id, string type)
+        public ActionResult<string> ListProcesses(string id, string type)
         {
             try
             {
-                return KaomiLoader.ListProcesses().ToArray();
+                var procs = KaomiLoader.ListProcesses().ToArray();
+                var result = JsonConvert.SerializeObject(new
+                {
+                    count = procs.Length,
+                    processes = procs
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return new[] { $"Error listing processes: {e.Message}" };
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error listing processes: {e.Message}"
+                });
+                return error;
             }
         }
 
@@ -111,25 +168,45 @@ namespace Kaomi.WebAPI.Controllers
         {
             try
             {
-                return KaomiLoader.HasResults(process).ToString();
+                var result = JsonConvert.SerializeObject(new
+                {
+                    process,
+                    hasResults = KaomiLoader.HasResults(process)
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error finding results: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error checking for process result: {e.Message}"
+                });
+                return error;
             }
         }
 
         // GET Kaomi/GetResults
         [HttpGet("GetResults")]
-        public ActionResult<IEnumerable<string>> GetResults(string process)
+        public ActionResult<string> GetResults(string process)
         {
             try
             {
-                return KaomiLoader.GetResults(process).ToArray();
+                var results = KaomiLoader.GetResults(process).ToArray();
+                var result = JsonConvert.SerializeObject(new
+                {
+                    process,
+                    count = results.Length,
+                    results
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return new[] { $"Error returning results: {e.Message}" };
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error returning process results: {e.Message}"
+                });
+                return error;
             }
         }
 
@@ -140,11 +217,19 @@ namespace Kaomi.WebAPI.Controllers
             try
             {
                 KaomiLoader.SendMessage(process, message);
-                return "Message sent successfully.";
+                var result = JsonConvert.SerializeObject(new
+                {
+                    status = "Message sent successfully."
+                });
+                return result;
             }
             catch (Exception e)
             {
-                return $"Error sending message: {e.Message}";
+                var error = JsonConvert.SerializeObject(new
+                {
+                    error = $"Error sending message: {e.Message}"
+                });
+                return error;
             }
         }
     }
