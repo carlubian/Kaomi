@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kaomi.Core.Model
 {
-    public class ServerConsoleOutput : KaomiPlugin
+    public class KaomiPluginConsole : KaomiPlugin
     {
         ConsoleColor fore, back;
 

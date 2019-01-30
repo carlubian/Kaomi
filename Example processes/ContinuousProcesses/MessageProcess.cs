@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConfigProcess
+namespace ContinuousProcesses
 {
     public class MessageProcess : KaomiProcess
     {
-        private ServerConsoleOutput ServerConsole;
+        private KaomiPluginConsole Console;
 
         public override void OnInitialize()
         {
-            base.IterationDelay = TimeSpan.FromSeconds(10);
-            ServerConsole = Request<ServerConsoleOutput>();
+            Console = Request<KaomiPluginConsole>();
+            IterationDelay = TimeSpan.FromSeconds(15);
         }
 
         public override void OnIteration()
@@ -27,7 +27,7 @@ namespace ConfigProcess
         
         public override void OnUserMessage(string message)
         {
-            ServerConsole.WriteLine($"[MessageProcess] {message}");
+            Console.WriteLine($"[MessageProcess] Received message: {message}");
         }
     }
 }

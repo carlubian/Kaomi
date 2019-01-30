@@ -1,14 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <ApplicationIcon />
-    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kaomi.Core" Version="0.5.0" />
+    <PackageReference Include="Kaomi.Core" Version="0.7.0" />
   </ItemGroup>
 
 </Project>

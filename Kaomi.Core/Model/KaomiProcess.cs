@@ -11,7 +11,7 @@ namespace Kaomi.Core.Model
     /// </summary>
     public abstract class KaomiProcess : MarshalByRefObject
     {
-        internal bool RequestFinalization { get; set; } = false;
+        public bool RequestFinalization { get; set; } = false;
         internal KaomiTaskHost TaskHost { get; set; }
 
         public TimeSpan IterationDelay { get; set; } = TimeSpan.FromSeconds(1);

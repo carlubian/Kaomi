@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration Format="A">
   <Settings>
+    <!-- Used by OneTimeWithConfig.cs -->
     <Setting Key="Message">Hello, World</Setting>
   </Settings>
 </Configuration>

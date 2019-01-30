@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kaomi.Core.Model
 {
-    public class ConfigFileManager : KaomiPlugin
+    public class KaomiPluginConfiguration : KaomiPlugin
     {
         private Config config;
 

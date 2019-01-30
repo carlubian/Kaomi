@@ -7,13 +7,13 @@ namespace Kaomi.Core
 {
     internal class AutoStartProcesses : OneTimeProcess
     {
-        private ServerConsoleOutput ServerConsole;
-        private ConfigFileManager Config;
+        private KaomiPluginConsole ServerConsole;
+        private KaomiPluginConfiguration Config;
 
         public override void OnInitialize()
         {
-            ServerConsole = Request<ServerConsoleOutput>();
-            Config = Request<ConfigFileManager>();
+            ServerConsole = Request<KaomiPluginConsole>();
+            Config = Request<KaomiPluginConfiguration>();
             ServerConsole._WriteLine("Looking for startup processes...");
         }
 
@@ -21,7 +21,11 @@ namespace Kaomi.Core
         {
             foreach (var proc in Config.SettingsIn("Startup"))
             {
-                KaomiLoader.Load($"{proc.Key}.dll");
+                try
+                {
+                    KaomiLoader.Load($"{proc.Key}.dll");
+                }
+                catch { } // The assembly could already be loaded
                 KaomiLoader.InstanceProcess(proc.Key, proc.Value);
             }
 

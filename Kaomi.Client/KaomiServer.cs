@@ -53,13 +53,13 @@ namespace Kaomi.Client
         /// memory of the Kaomi Server.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<string> AllProcesses()
+        public KaomiProcessList AllProcesses()
         {
-            var prcs = Restquest.Get<KaomiProcessList>(address, port, "Kaomi/ListProcesses");
-            if (prcs.Valid())
-                return prcs.processes;
+            var kpl = Restquest.Get<KaomiProcessList>(address, port, "Kaomi/ListProcesses");
+            kpl.ip = this.address;
+            kpl.port = this.port;
 
-            return new string[0];
+            return kpl;
         }
     }
 }

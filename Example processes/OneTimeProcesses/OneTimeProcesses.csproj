@@ -5,17 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="HelloWorldProcess.xml" />
+    <None Remove="OneTimeProcesses.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="HelloWorldProcess.xml">
+    <Content Include="OneTimeProcesses.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kaomi.Core\Kaomi.Core.csproj" />
+    <PackageReference Include="Kaomi.Core" Version="0.7.0" />
   </ItemGroup>
 
 </Project>

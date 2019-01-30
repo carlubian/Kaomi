@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28516.95
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.Core", "Kaomi.Core\Kaomi.Core.csproj", "{58F9AA96-91B0-443C-BFA3-160F03499840}"
 EndProject
@@ -12,13 +12,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.WebAPI", "Kaomi.WebAPI\Kaomi.WebAPI.csproj", "{855EA92C-8D98-499D-8711-30C15A925FC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorldProcess", "HelloWorldProcess\HelloWorldProcess.csproj", "{E3802282-D3C9-4B44-BC38-75CD44A626F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.Client", "Kaomi.Client\Kaomi.Client.csproj", "{ADE7CA31-279E-460E-82FC-B11595436EE3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigProcess", "ConfigProcess\ConfigProcess.csproj", "{1D25E788-EEAB-46F8-A606-EE09F0DAB580}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaomi.ConsoleClient", "Kaomi.ConsoleClient\Kaomi.ConsoleClient.csproj", "{E1F9BD5F-DA2B-42D2-A09D-ED55F6FCDC32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaomi.Client", "Kaomi.Client\Kaomi.Client.csproj", "{ADE7CA31-279E-460E-82FC-B11595436EE3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example processes", "Example processes", "{CADA9BC7-7BD5-499C-9480-DDDDA87F6F8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaomi.ConsoleClient", "Kaomi.ConsoleClient\Kaomi.ConsoleClient.csproj", "{E1F9BD5F-DA2B-42D2-A09D-ED55F6FCDC32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneTimeProcesses", "Example processes\OneTimeProcesses\OneTimeProcesses.csproj", "{ED9254E3-7C86-4A2C-82CF-68083E27D852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContinuousProcesses", "Example processes\ContinuousProcesses\ContinuousProcesses.csproj", "{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,14 +36,6 @@ Global
 		{855EA92C-8D98-499D-8711-30C15A925FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{855EA92C-8D98-499D-8711-30C15A925FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{855EA92C-8D98-499D-8711-30C15A925FC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3802282-D3C9-4B44-BC38-75CD44A626F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D25E788-EEAB-46F8-A606-EE09F0DAB580}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADE7CA31-279E-460E-82FC-B11595436EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADE7CA31-279E-460E-82FC-B11595436EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE7CA31-279E-460E-82FC-B11595436EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,9 +44,21 @@ Global
 		{E1F9BD5F-DA2B-42D2-A09D-ED55F6FCDC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1F9BD5F-DA2B-42D2-A09D-ED55F6FCDC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1F9BD5F-DA2B-42D2-A09D-ED55F6FCDC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9254E3-7C86-4A2C-82CF-68083E27D852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9254E3-7C86-4A2C-82CF-68083E27D852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9254E3-7C86-4A2C-82CF-68083E27D852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9254E3-7C86-4A2C-82CF-68083E27D852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED9254E3-7C86-4A2C-82CF-68083E27D852} = {CADA9BC7-7BD5-499C-9480-DDDDA87F6F8E}
+		{27752FFA-D566-4E11-8DA9-98B9B9F9DDAC} = {CADA9BC7-7BD5-499C-9480-DDDDA87F6F8E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A85EF46-E7E9-4613-83D3-F81EC382C85F}

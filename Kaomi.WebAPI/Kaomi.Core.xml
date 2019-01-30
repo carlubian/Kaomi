@@ -4,5 +4,4 @@
   <Startup>
     <Setting Key="ConfigProcess">MessageProcess</Setting>
   </Startup>
-  <Setting Key="Test">value</Setting>
 </Configuration>

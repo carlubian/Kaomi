@@ -1,18 +1,37 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Kaomi.Client.Model
 {
-    internal class KaomiProcessList
+    public class KaomiProcessList
     {
-        public int count { get; set; }
-        public IEnumerable<string> processes { get; set; }
-        public string error { get; set; }
+        [JsonProperty("count")]
+        public int Count { get; set; }
+        [JsonProperty("processes")]
+        internal IEnumerable<string> processes { get; set; }
+        [JsonProperty("error")]
+        public string Error { get; set; }
+
+        internal IpAddress ip;
+        internal int port;
+
+        public IEnumerable<KaomiProcess> ProcessList
+        {
+            get
+            {
+                if (processes is null)
+                    yield break;
+                else
+                    foreach (var process in processes)
+                        yield return new KaomiProcess(ip, port, process);
+            }
+        }
 
         public bool Valid()
         {
-            if (error is null && processes != null)
+            if (Error is null && processes != null)
                 return true;
             return false;
         }

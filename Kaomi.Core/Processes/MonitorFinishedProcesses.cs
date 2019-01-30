@@ -16,7 +16,7 @@ namespace Kaomi.Core
     /// </remarks>
     internal class MonitorFinishedProcesses : KaomiProcess
     {
-        private ServerConsoleOutput ServerConsole;
+        private KaomiPluginConsole ServerConsole;
 
         public override void OnInitialize()
         {
@@ -24,7 +24,7 @@ namespace Kaomi.Core
             base.IterationDelay = TimeSpan.FromSeconds(10);
 
             // Request Kaomi Plugin
-            ServerConsole = Request<ServerConsoleOutput>();
+            ServerConsole = Request<KaomiPluginConsole>();
         }
 
         public override void OnIteration()
