@@ -6,6 +6,10 @@ using System.Text;
 
 namespace Kaomi.Client
 {
+    /// <summary>
+    /// Represents one of the processes running
+    /// on the Kaomi server.
+    /// </summary>
     public class KaomiProcess
     {
         private IpAddress ip;
@@ -19,6 +23,10 @@ namespace Kaomi.Client
             Id = id;
         }
 
+        /// <summary>
+        /// Checks whether this process has pending results.
+        /// </summary>
+        /// <returns></returns>
         public bool HasResults()
         {
             var name = Id.Split(' ')[1];
@@ -28,12 +36,21 @@ namespace Kaomi.Client
                 throw new ArgumentException($"Process {Id} had a problem checking for results.");
         }
 
+        /// <summary>
+        /// Returns all available results for this process,
+        /// emptying the queue as a result.
+        /// </summary>
+        /// <returns></returns>
         public KaomiProcessResult GetResults()
         {
             var name = Id.Split(' ')[1];
             return Restquest.Get<KaomiProcessResult>(ip, port, $"Kaomi/GetResults?process={name}");
         }
 
+        /// <summary>
+        /// Sends a message to this process.
+        /// </summary>
+        /// <param name="message">Text message</param>
         public void SendMessage(string message)
         {
             var name = Id.Split(' ')[1];

@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Kaomi.Core.Model
 {
+    /// <summary>
+    /// Allows processes to print coloured messages
+    /// in the server Kestrel console.
+    /// </summary>
     public class KaomiPluginConsole : KaomiPlugin
     {
         ConsoleColor fore, back;

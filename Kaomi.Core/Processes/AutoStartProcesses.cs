@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Kaomi.Core
 {
+    /// <summary>
+    /// System process that runs all startup processes
+    /// as indicated in the server configuration file.
+    /// </summary>
     internal class AutoStartProcesses : OneTimeProcess
     {
         private KaomiPluginConsole ServerConsole;

@@ -6,6 +6,10 @@ using System.Text;
 
 namespace Kaomi.Core.Model
 {
+    /// <summary>
+    /// Allows proceses to read and write persistent
+    /// settings in a configuration file.
+    /// </summary>
     public class KaomiPluginConfiguration : KaomiPlugin
     {
         private Config config;
