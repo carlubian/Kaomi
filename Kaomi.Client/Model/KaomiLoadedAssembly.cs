@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Kaomi.Client.Model
 {
-    public class KaomiServerStatus
+    public class KaomiLoadedAssembly
     {
-        [JsonProperty("status")]
-        public string Status { get; set; }
+        [JsonProperty("asmId")]
+        public string Assembly { get; set; }
         [JsonProperty("error")]
         public string Error { get; set; }
 
         public bool Valid()
         {
-            if (Status != null && Error is null)
+            if (Assembly != null && Error is null)
                 return true;
             else
                 return false;

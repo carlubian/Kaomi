@@ -39,14 +39,14 @@ namespace Kaomi.Core
         /// Tells the server to download a file from the
         /// specified URI into its local directory.
         /// </summary>
-        /// <param name="asmName">Name of the file</param>
+        /// <param name="fileName">Name of the file</param>
         /// <param name="uri">Path to the file</param>
-        public static void PullFromUri(string asmName, Uri uri)
+        public static void PullFromUri(string fileName, Uri uri)
         {
             using (var web = new WebClient())
-                web.DownloadFile(uri, asmName);
+                web.DownloadFile(uri, fileName);
 
-            Zip.ExtractFile(asmName);
+            Zip.ExtractFile(fileName);
         }
 
         /// <summary>

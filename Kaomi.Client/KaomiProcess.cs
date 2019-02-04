@@ -27,13 +27,10 @@ namespace Kaomi.Client
         /// Checks whether this process has pending results.
         /// </summary>
         /// <returns></returns>
-        public bool HasResults()
+        public KaomiProcessHasResults HasResults()
         {
             var name = Id.Split(' ')[1];
-            var hasResults = Restquest.Get<KaomiProcessHasResults>(ip, port, $"Kaomi/HasResults?process={name}");
-            return hasResults.Valid() ? 
-                hasResults.HasResults : 
-                throw new ArgumentException($"Process {Id} had a problem checking for results.");
+            return Restquest.Get<KaomiProcessHasResults>(ip, port, $"Kaomi/HasResults?process={name}");
         }
 
         /// <summary>
@@ -51,10 +48,10 @@ namespace Kaomi.Client
         /// Sends a message to this process.
         /// </summary>
         /// <param name="message">Text message</param>
-        public void SendMessage(string message)
+        public KaomiServerStatus SendMessage(string message)
         {
             var name = Id.Split(' ')[1];
-            Restquest.Get<KaomiServerStatus>(ip, port, $"Kaomi/SendMessage?process={name}&message={Uri.EscapeDataString(message)}");
+            return Restquest.Get<KaomiServerStatus>(ip, port, $"Kaomi/SendMessage?process={name}&message={Uri.EscapeDataString(message)}");
         }
     }
 }

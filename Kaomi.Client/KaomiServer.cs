@@ -61,5 +61,44 @@ namespace Kaomi.Client
 
             return kpl;
         }
+
+        /// <summary>
+        /// Downloads a file into the server execution directory.
+        /// If the file is a Zip file, it will be automatically
+        /// decompressed.
+        /// </summary>
+        /// <param name="filename">Name and extension of the file</param>
+        /// <param name="uri">Uri pointing to the file</param>
+        /// <returns></returns>
+        public KaomiServerStatus PullFromUri(string filename, Uri uri)
+        {
+            return Restquest.Get<KaomiServerStatus>(address, port, $"Kaomi/PullFromUri?fileName?{filename}&uri={uri.ToString()}");
+        }
+
+        /// <summary>
+        /// Load a DLL file from the server local directory into
+        /// memory, allowing for subsequent process instantiation.
+        /// </summary>
+        /// <param name="asmPath">Name and extension of the assembly file</param>
+        /// <returns></returns>
+        public KaomiLoadedAssembly LoadAssembly(string asmPath)
+        {
+            return Restquest.Get<KaomiLoadedAssembly>(address, port, $"Kaomi/Load?path={asmPath}");
+            //TODO Return a KaomiAssembly instead?
+        }
+
+        /// <summary>
+        /// Returns a list of all assemblies loaded into
+        /// the memory of the Kaomi Server.
+        /// </summary>
+        /// <returns></returns>
+        public KaomiAssemblyList AllAssemblies()
+        {
+            var kal = Restquest.Get<KaomiAssemblyList>(address, port, "Kaomi/ListAssemblies");
+            kal.ip = this.address;
+            kal.port = this.port;
+
+            return kal;
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Kaomi.Client.Model
 {
-    internal class KaomiProcessHasResults
+    public class KaomiProcessHasResults
     {
         [JsonProperty("process")]
         public string Process { get; set; }
@@ -14,7 +14,7 @@ namespace Kaomi.Client.Model
         [JsonProperty("error")]
         public string Error { get; set; }
 
-        internal bool Valid()
+        public bool Valid()
         {
             return Error is null && Process != null;
         }

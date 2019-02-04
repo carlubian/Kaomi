@@ -25,14 +25,14 @@ namespace Kaomi.WebAPI.Controllers
 
         // GET Kaomi/PullFromUri
         [HttpGet("PullFromUri")]
-        public ActionResult<string> PullFromUri(string asmName, string uri)
+        public ActionResult<string> PullFromUri(string fileName, string uri)
         {
             try
             {
-                KaomiLoader.PullFromUri(asmName, new Uri(uri));
+                KaomiLoader.PullFromUri(fileName, new Uri(uri));
                 var result = JsonConvert.SerializeObject(new
                 {
-                    asmName = $"Assembly {asmName} pulled from requested URI."
+                    status = $"File {fileName} pulled from requested URI."
                 });
                 return result;
             }
