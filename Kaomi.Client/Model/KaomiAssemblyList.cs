@@ -14,6 +14,7 @@ namespace Kaomi.Client.Model
         [JsonProperty("error")]
         public string Error { get; set; }
 
+        internal KaomiServer server;
         internal IpAddress ip;
         internal int port;
 
@@ -25,7 +26,7 @@ namespace Kaomi.Client.Model
                     yield break;
                 else
                     foreach (var assembly in assemblies)
-                        yield return new KaomiAssembly(ip, port, assembly);
+                        yield return new KaomiAssembly(ip, port, server, assembly);
             }
         }
 

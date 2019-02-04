@@ -14,12 +14,14 @@ namespace Kaomi.Client
     {
         private IpAddress ip;
         private int port;
+        public KaomiAssembly Assembly { get; }
         public string Id { get; }
 
-        internal KaomiProcess(IpAddress ip, int port, string id)
+        internal KaomiProcess(IpAddress ip, int port, KaomiAssembly assembly, string id)
         {
             this.ip = ip;
             this.port = port;
+            Assembly = assembly;
             Id = id;
         }
 
@@ -29,8 +31,7 @@ namespace Kaomi.Client
         /// <returns></returns>
         public KaomiProcessHasResults HasResults()
         {
-            var name = Id.Split(' ')[1];
-            return Restquest.Get<KaomiProcessHasResults>(ip, port, $"Kaomi/HasResults?process={name}");
+            return Restquest.Get<KaomiProcessHasResults>(ip, port, $"Kaomi/HasResults?process={Id}");
         }
 
         /// <summary>
@@ -40,8 +41,7 @@ namespace Kaomi.Client
         /// <returns></returns>
         public KaomiProcessResult GetResults()
         {
-            var name = Id.Split(' ')[1];
-            return Restquest.Get<KaomiProcessResult>(ip, port, $"Kaomi/GetResults?process={name}");
+            return Restquest.Get<KaomiProcessResult>(ip, port, $"Kaomi/GetResults?process={Id}");
         }
 
         /// <summary>
@@ -50,8 +50,24 @@ namespace Kaomi.Client
         /// <param name="message">Text message</param>
         public KaomiServerStatus SendMessage(string message)
         {
-            var name = Id.Split(' ')[1];
-            return Restquest.Get<KaomiServerStatus>(ip, port, $"Kaomi/SendMessage?process={name}&message={Uri.EscapeDataString(message)}");
+            return Restquest.Get<KaomiServerStatus>(ip, port, $"Kaomi/SendMessage?process={Id}&message={Uri.EscapeDataString(message)}");
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is KaomiProcess kp)
+                return kp.ip == this.ip && kp.port == this.port && kp.Id == this.Id;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -2006699598;
+            hashCode = hashCode * -1521134295 + EqualityComparer<IpAddress>.Default.GetHashCode(ip);
+            hashCode = hashCode * -1521134295 + port.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Id);
+            return hashCode;
         }
     }
 }

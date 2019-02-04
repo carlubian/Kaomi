@@ -19,22 +19,29 @@ namespace Kaomi.ConsoleClient
             var server = KaomiServer.ConnectTo(ip, int.Parse(port));
             Console.WriteLine($"Kaomi Server listening?: {server.IsListening()}");
 
-            // List active processes in the server
+            // List loaded assemblies in the server
             Console.WriteLine();
-            var processList = server.AllProcesses();
-            Console.WriteLine($"Process list valid?: {processList.Valid()}");
+            var assemblyList = server.AllAssemblies();
+            Console.WriteLine($"Assembly list valid?: {assemblyList.Valid()}");
             
-            WriteHeader("List of active processes:");
-            foreach (var process in processList.ProcessList)
-                Console.WriteLine(process.Id);
-            WriteHeader("Finished listing processes.");
+            WriteHeader("List of loaded assemblies and their processes:");
+            foreach (var assembly in assemblyList.AssemblyList)
+            {
+                Console.WriteLine(assembly.Id);
+                foreach (var process in assembly.AllProcesses().ProcessList)
+                    Console.WriteLine($"    {process.Id}");
+            }
+            WriteHeader("Finished listing assemblies.");
 
             // Get results from a process
             Console.WriteLine();
-            WriteHeader("Write the index of a process (starting at 0):");
-            var index = int.Parse(Console.ReadLine());
+            WriteHeader("Write the name of an assembly:");
+            var asm = Console.ReadLine();
+            WriteHeader($"Write the name of a process inside {asm}:");
+            var proc = Console.ReadLine();
 
-            var prc = processList.ProcessList.Skip(index).First();
+            var prc = assemblyList.AssemblyList.First(a => a.Id.Equals(asm))
+                .AllProcesses().ProcessList.First(p => p.Id.Equals(proc));
             Console.WriteLine($"Process {prc.Id} has results?: {prc.HasResults()}");
             WriteHeader($"List results of {prc.Id}:");
 

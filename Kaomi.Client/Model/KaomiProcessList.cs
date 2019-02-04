@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Kaomi.Client.Model
@@ -16,6 +17,7 @@ namespace Kaomi.Client.Model
 
         internal IpAddress ip;
         internal int port;
+        internal KaomiAssembly assembly;
 
         public IEnumerable<KaomiProcess> ProcessList
         {
@@ -24,8 +26,9 @@ namespace Kaomi.Client.Model
                 if (processes is null)
                     yield break;
                 else
-                    foreach (var process in processes)
-                        yield return new KaomiProcess(ip, port, process);
+                    foreach (var process in processes.Where(p => p.Split(' ')[0]
+                        .Replace("[", "").Replace("]", "").Equals(assembly.Id)))
+                        yield return new KaomiProcess(ip, port, assembly, process.Split(' ')[1]);
             }
         }
 

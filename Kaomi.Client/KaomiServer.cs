@@ -49,20 +49,6 @@ namespace Kaomi.Client
         public bool IsListening() => Validate.ServerPresentAt(address, port);
 
         /// <summary>
-        /// Returns a list of all active processes loaded into the
-        /// memory of the Kaomi Server.
-        /// </summary>
-        /// <returns></returns>
-        public KaomiProcessList AllProcesses()
-        {
-            var kpl = Restquest.Get<KaomiProcessList>(address, port, "Kaomi/ListProcesses");
-            kpl.ip = this.address;
-            kpl.port = this.port;
-
-            return kpl;
-        }
-
-        /// <summary>
         /// Downloads a file into the server execution directory.
         /// If the file is a Zip file, it will be automatically
         /// decompressed.
@@ -81,10 +67,13 @@ namespace Kaomi.Client
         /// </summary>
         /// <param name="asmPath">Name and extension of the assembly file</param>
         /// <returns></returns>
-        public KaomiLoadedAssembly LoadAssembly(string asmPath)
+        public KaomiAssembly LoadAssembly(string asmPath)
         {
-            return Restquest.Get<KaomiLoadedAssembly>(address, port, $"Kaomi/Load?path={asmPath}");
-            //TODO Return a KaomiAssembly instead?
+            var kla = Restquest.Get<KaomiLoadedAssembly>(address, port, $"Kaomi/Load?path={asmPath}");
+
+            if (kla.Valid())
+                return new KaomiAssembly(address, port, this, asmPath);
+            return null;
         }
 
         /// <summary>
@@ -97,6 +86,7 @@ namespace Kaomi.Client
             var kal = Restquest.Get<KaomiAssemblyList>(address, port, "Kaomi/ListAssemblies");
             kal.ip = this.address;
             kal.port = this.port;
+            kal.server = this;
 
             return kal;
         }

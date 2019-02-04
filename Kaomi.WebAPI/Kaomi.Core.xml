@@ -2,6 +2,6 @@
 <Configuration Format="A">
   <Setting Key="Version">1</Setting>
   <Startup>
-    <Setting Key="ConfigProcess">MessageProcess</Setting>
+    <Setting Key="ContinuousProcesses">MessageProcess</Setting>
   </Startup>
 </Configuration>
