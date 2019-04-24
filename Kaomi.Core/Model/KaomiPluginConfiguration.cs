@@ -1,4 +1,5 @@
 ﻿using ConfigAdapter;
+using ConfigAdapter.Xml;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -16,7 +17,7 @@ namespace Kaomi.Core.Model
 
         public override void Initialize(string callingAssembly)
         {
-            config = Config.From($"{callingAssembly}.xml");
+            config = XmlConfig.From($"{callingAssembly}.xml");
         }
 
         public string Read(string key) => config.Read(key);

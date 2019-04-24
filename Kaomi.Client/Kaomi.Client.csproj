@@ -4,11 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Id>Kaomi.Client</Id>
     <Title>Kaomi.Client</Title>
-    <Version>0.6.0</Version>
+    <Version>0.6.1</Version>
     <Authors>carlubian</Authors>
     <Owners>carlubian</Owners>
     <Company>carlubian</Company>
-    <PackageReleaseNotes>Allow traversing Server&lt;-&gt;Assembly&lt;-&gt;Process.</PackageReleaseNotes>
+    <PackageReleaseNotes>Minor dependency updates and refactors.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/carlubian/Kaomi</PackageProjectUrl>
     <Description>Allows the creation of Kaomi Clients.</Description>
     <RepositoryUrl>https://github.com/carlubian/Kaomi.git</RepositoryUrl>
@@ -17,8 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ConfigAdapter" Version="1.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
 </Project>
