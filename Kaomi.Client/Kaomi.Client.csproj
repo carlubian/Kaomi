@@ -4,11 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Id>Kaomi.Client</Id>
     <Title>Kaomi.Client</Title>
-    <Version>0.6.1</Version>
+    <Version>0.6.2</Version>
     <Authors>carlubian</Authors>
     <Owners>carlubian</Owners>
     <Company>carlubian</Company>
-    <PackageReleaseNotes>Minor dependency updates and refactors.</PackageReleaseNotes>
+    <PackageReleaseNotes>Mark Kaomi.Client as CLS Compliant.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/carlubian/Kaomi</PackageProjectUrl>
     <Description>Allows the creation of Kaomi Clients.</Description>
     <RepositoryUrl>https://github.com/carlubian/Kaomi.git</RepositoryUrl>

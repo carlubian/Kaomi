@@ -3,6 +3,7 @@ using Kaomi.Client.Model;
 using System;
 using System.Collections.Generic;
 
+[assembly: CLSCompliant(true)]
 namespace Kaomi.Client
 {
     /// <summary>

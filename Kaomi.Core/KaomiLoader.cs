@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 
+[assembly: CLSCompliant(true)]
 namespace Kaomi.Core
 {
     /// <summary>
