@@ -1,4 +1,5 @@
 [![Build Status](https://carlubian.visualstudio.com/GitHub%20Interop/_apis/build/status/Kaomi%20Build?branchName=master)](https://carlubian.visualstudio.com/GitHub%20Interop/_build/latest?definitionId=19?branchName=master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/carlubian/Kaomi?branch=master)](https://bettercodehub.com/)
 
 # Kaomi
 <strong>Remote assembly loader as an ASP.NET WebAPI.</strong>
