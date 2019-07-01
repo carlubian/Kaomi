@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Configuration Format="A">
+    <Server>
+        <!--Indicates the port used by the web server-->
+        <Setting Key="Port">5005</Setting>
+    </Server>
+</Configuration>

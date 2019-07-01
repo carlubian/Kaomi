@@ -49,6 +49,7 @@ namespace Kaomi.WebAPI
                 Console.WriteLine($"[SYSTEM] Unloading assembly {assembly}");
                 KaomiLoader.Unload(assembly);
             }
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }
