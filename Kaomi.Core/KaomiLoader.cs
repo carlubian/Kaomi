@@ -47,7 +47,12 @@ namespace Kaomi.Core
             using (var web = new WebClient())
                 web.DownloadFile(uri, fileName);
 
-            Zip.ExtractFile(fileName);
+            var dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Kaomi Assemblies");
+            dir = Path.Combine(dir, fileName);
+
+            File.Move(fileName, dir);
+
+            Zip.ExtractFile(dir);
         }
 
         /// <summary>
@@ -60,9 +65,11 @@ namespace Kaomi.Core
         public static string Load(string path)
         {
             var context = new KaomiLoadContext();
+            var dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Kaomi Assemblies");
+            dir = Path.Combine(dir, path);
 
             Assembly asm;
-            using (var stream = File.OpenRead(path))
+            using (var stream = File.OpenRead(dir))
                 asm = context.LoadFromStream(stream);
 
             var id = asm.GetName().Name;
