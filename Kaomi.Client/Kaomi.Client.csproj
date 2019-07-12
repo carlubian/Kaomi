@@ -4,16 +4,17 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Id>Kaomi.Client</Id>
     <Title>Kaomi.Client</Title>
-    <Version>0.6.2</Version>
+    <Version>0.6.3</Version>
     <Authors>carlubian</Authors>
     <Owners>carlubian</Owners>
     <Company>carlubian</Company>
-    <PackageReleaseNotes>Mark Kaomi.Client as CLS Compliant.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add PackageLicenseExpression.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/carlubian/Kaomi</PackageProjectUrl>
     <Description>Allows the creation of Kaomi Clients.</Description>
     <RepositoryUrl>https://github.com/carlubian/Kaomi.git</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageTags>asp-net-core, web-api, dotnet-core3</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
