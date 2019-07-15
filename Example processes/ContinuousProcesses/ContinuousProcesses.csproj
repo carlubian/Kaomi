@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kaomi.Core" Version="0.7.2" />
+    <PackageReference Include="Kaomi.Core" Version="0.7.3" />
   </ItemGroup>
 
 </Project>
