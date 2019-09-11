@@ -1,0 +1,26 @@
+name: .NET Core CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.100-preview3-010431
+    - name: Build Kaomi.Core
+      run: dotnet build Kaomi.Core/Kaomi.Core.csproj -f netcoreapp3.0
+    - name: Build Kaomi.WebAPI
+      run: dotnet build Kaomi.WebAPI/Kaomi.WebAPI.csproj -f netcoreapp3.0
+    - name: Build Kaomi.Client
+      run: dotnet build Kaomi.Client/Kaomi.Client.csproj -f netstandard2.0
+    - name: Build Kaomi.ConsoleClient
+      run: dotnet build Kaomi.ConsoleClient/Kaomi.ConsoleClient.csproj -f netcoreapp2.1
